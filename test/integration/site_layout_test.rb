@@ -12,4 +12,10 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     assert_select "a[href=?]", signup_path
   end
 
+  test "signup page should have correct title" do
+    get signup_path
+    assert_template 'users/new'
+    assert_select 'title', 'Sign up | Ruby on Rails Tutorial Sample App'
+  end
+
 end
