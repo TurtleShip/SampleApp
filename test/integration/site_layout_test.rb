@@ -15,7 +15,7 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
   test "signup page should have correct title" do
     get signup_path
     assert_template 'users/new'
-    assert_select 'title', 'Sign up | Ruby on Rails Tutorial Sample App'
+    assert_select 'title', full_title('Sign up')
   end
 
 end
