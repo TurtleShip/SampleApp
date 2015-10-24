@@ -143,3 +143,31 @@ aside {
 .gravatar_edit {
   margin-top: 15px;
 }
+
+/* forms */
+input, textarea, select, .uneditable-input {
+  border: 1px solid #bbb;
+  width: 100%;
+  margin-bottom: 15px;
+  @include box_sizing;
+}
+input {
+  height: auto !important;
+}
+
+#error_explanation {
+  color: red;
+  ul {
+    color: red;
+    margin: 0 0 30px 0;
+  }
+}
+
+// After an invalid submission, Rails automatically wraps the fields with errors
+// in divs with the css class field_with_errors
+.field_with_errors {
+  @extend .has-error; // has-error is a bootstrap class
+  .form-control {
+    color: $state-danger-text;
+  }
+}
