@@ -10,9 +10,10 @@ class User < ActiveRecord::Base
   validates :email, presence: true, length: {maximum: 50},
             format: {with: VALID_EMAIL_REGEX},
             uniqueness: {case_sensitive: false}
-  validates :password, presence: true, length: {minimum: 6}
-
   has_secure_password
+  # Adding allow_nil: true so that users can edit their email/name without
+  # updating their passwords
+  validates :password, presence: true, length: {minimum: 6}, allow_nil: true
 
   # Returns the hash digest of the given string.
   def User.digest(string)
