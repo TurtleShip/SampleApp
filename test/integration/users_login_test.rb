@@ -61,4 +61,25 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     assert_select "a[href=?]", logout_path, false
     assert_select "a[href=?]", user_path(@user), false
   end
+
+  test 'login with valid information followed by logouts from multiple tabs' do
+    get login_path
+
+    assert_template 'sessions/new'
+    post_via_redirect login_path, session: {
+                       email: @user.email,
+                       password: 'password'
+                   }
+
+    assert is_logged_in?
+
+    # Logging out from the first browser tab
+    delete logout_path
+    assert_not is_logged_in?
+
+    # Logging out from the second browser tab
+    delete logout_path
+    assert_not is_logged_in?
+  end
+
 end
