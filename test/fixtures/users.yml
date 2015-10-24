@@ -3,3 +3,8 @@ seulgi:
   name: Seulgi Kim
   email: seulgi.kim@email.com
   password_digest: <%= User.digest('password') %>
+
+soyeon:
+  name: Soyeon Huh
+  email: soyoen.huh@email.com
+  password_digest: <%= User.digest('password') %>
