@@ -1,6 +1,11 @@
 require 'test_helper'
 
 class UsersLoginTest < ActionDispatch::IntegrationTest
+
+  def setup
+    @user = users(:seulgi)
+  end
+
   test 'login with invalid information' do
     get login_path
 
@@ -21,5 +26,28 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
 
     # flash message should NOT appear on the new page
     assert_empty flash
+  end
+
+  test 'login with valid information' do
+    get login_path
+
+    assert_template 'sessions/new'
+    post login_path, session: {
+                       email: @user.email,
+                       password: 'password'
+                   }
+
+    assert_redirected_to @user
+    follow_redirect!
+    assert_template 'users/show'
+
+    # Verify that the login link disappears
+    assert_select "a[href=?]", login_path, false
+
+    # Verify that a logout link appears
+    assert_select "a[href=?]", logout_path
+
+    # Verify that a profile link appears
+    assert_select "a[href=?]", user_path(@user)
   end
 end
