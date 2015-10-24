@@ -38,5 +38,8 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
 
     # Check that user info page includes flash message
     assert_not_empty flash
+
+    # Check that user is logged in
+    is_logged_in?
   end
 end
