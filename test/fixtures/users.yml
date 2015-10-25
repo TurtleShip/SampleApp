@@ -3,10 +3,16 @@ seulgi:
   name: Seulgi Kim
   email: seulgi.kim@email.com
   password_digest: <%= User.digest('password') %>
+  admin: true
 
 soyeon:
   name: Soyeon Huh
   email: soyoen.huh@email.com
+  password_digest: <%= User.digest('password') %>
+
+michael:
+  name: Michael Hartl
+  email: example@railstutorial.org
   password_digest: <%= User.digest('password') %>
 
 <% 30.times do |number| %>
