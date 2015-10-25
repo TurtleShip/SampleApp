@@ -9,7 +9,7 @@ class UsersController < ApplicationController
 
   def index
     ## TODO: Pull only a fixed number at a time
-    @users = User.all
+    @users = User.paginate(page: params[:page], :per_page => 10)
   end
 
   def show
