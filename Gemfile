@@ -8,8 +8,9 @@ gem 'coffee-rails', '4.1.0'
 gem 'jquery-rails', '4.0.3'
 gem 'turbolinks', '2.3.0'
 gem 'jbuilder', '2.2.3'
-gem 'bootstrap-sass', '3.2.0.0' # Add botstrap
+gem 'bootstrap-sass', '3.2.0.0' # Add bootstrap
 gem 'sdoc', '0.4.0', group: :doc
+gem 'faker', '1.4.2'
 
 group :development, :test do
   gem 'sqlite3', '1.3.9'
