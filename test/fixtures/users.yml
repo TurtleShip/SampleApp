@@ -4,20 +4,28 @@ seulgi:
   email: seulgi.kim@email.com
   password_digest: <%= User.digest('password') %>
   admin: true
+  activated: true
+  activated_at: <%= Time.zone.now %>
 
 soyeon:
   name: Soyeon Huh
   email: soyoen.huh@email.com
   password_digest: <%= User.digest('password') %>
+  activated: true
+  activated_at: <%= Time.zone.now %>
 
 michael:
   name: Michael Hartl
   email: example@railstutorial.org
   password_digest: <%= User.digest('password') %>
+  activated: true
+  activated_at: <%= Time.zone.now %>
 
 <% 30.times do |number| %>
 user_<%= number %>:
   name: <%= "User #{number}" %>
   email: <%= "user-#{number}@example.com" %>
   password_digest: <%= User.digest('password') %>
+  activated: true
+  activated_at: <%= Time.zone.now %>
 <% end %>
