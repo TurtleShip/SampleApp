@@ -1,9 +1,6 @@
 require 'test_helper'
 
 class UsersSignupTest < ActionDispatch::IntegrationTest
-  # test "the truth" do
-  #   assert true
-  # end
 
   test 'invalid form submission should not create a new user' do
     get signup_path
